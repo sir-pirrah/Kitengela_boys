@@ -85,6 +85,23 @@ var swiper = new Swiper(".reviews-slider", {
    
   });
 
+  const sendEmail = (e) => {
+    e.preventDefault();
+
+    emailjs
+      .sendForm('service_ssjq4y2', 'template_sd716ff', form.current, {
+        publicKey: 'IH2B18qqgmijvKCM8',
+      })
+      .then(
+        () => {
+          console.log('SUCCESS!');
+          setDone(true);
+        },
+        (error) => {
+          console.log('FAILED...', error.text);
+        },
+      );
+    };
 
 
 
